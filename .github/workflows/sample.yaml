@@ -8,6 +8,8 @@ jobs:
     name: Amd Image Build
     runs-on: ubuntu-latest
     steps:
+      - name: Soruce Code Checkout
+        uses: actions/checkout@v2
       - name: Build Image
         run: |
           uname -a
@@ -18,6 +20,8 @@ jobs:
     name: Power Image Build
     runs-on: ubuntu-latest-ppc64le
     steps:
+      - name: Soruce Code Checkout
+        uses: actions/checkout@v2
       - name: Build Image
         run: |
           uname -a
