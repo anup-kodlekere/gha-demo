@@ -5,19 +5,23 @@ on: [ workflow_dispatch, push ]
 
 jobs:
   amd_job:
-    name: Amd Job
+    name: Amd Image Build
     runs-on: ubuntu-latest
     steps:
-      - name: Run commands
+      - name: Build Image
         run: |
           uname -a
-          arch
+          docker build -t test:latest .
+          docker inspect test:latest |grep Arch
+          docker run -t test:latest
   power_job:
-    name: Power Job
+    name: Power Image Build
     runs-on: ubuntu-latest-ppc64le
     steps:
-      - name: Run commands
+      - name: Build Image
         run: |
           uname -a
-          arch 
+          docker build -t test:latest .
+          docker inspect test:latest |grep Arch
+          docker run -t test:latest
           
