@@ -4,9 +4,9 @@ on: [ workflow_dispatch, push ]
 
 
 jobs:
-  amd_job:
-    name: Amd Image Build
-    runs-on: ubuntu-latest
+  power_job:
+    name: Power Image Build
+    runs-on: ubuntu-latest-ppc64le
     steps:
       - name: Code Checkout
         uses: actions/checkout@v2
