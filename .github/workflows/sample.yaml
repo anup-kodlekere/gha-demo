@@ -4,21 +4,6 @@ on: [ workflow_dispatch, push ]
 
 
 jobs:
-  power_job:
-    name: Power Image Build
-    runs-on: ubuntu-latest-ppc64le
-    steps:
-      - name: Code Checkout
-        uses: actions/checkout@v2
-        
-      - name: Build Image
-        run: docker build -t test:latest .
-        
-      - name: Inspect Image Arch
-        run: docker inspect test:latest |grep Arch
-        
-      - name: Run Container
-        run: docker run -t test:latest
   amd_job:
     name: Amd Image Build
     runs-on: ubuntu-latest
