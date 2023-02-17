@@ -18,5 +18,21 @@ jobs:
         run: docker inspect test:latest |grep Arch
         
       - name: Run Container
-        run: docker run -t test:latest        
+        run: docker run -t test:latest       
+        
+  power_job:
+    name: Power Image Build
+    runs-on: ubuntu-latest-ppc64le
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v2
+        
+      - name: Build Image
+        run: docker build -t test:latest .
+        
+      - name: Inspect Image Arch
+        run: docker inspect test:latest |grep Arch
+        
+      - name: Run Container
+        run: docker run -t test:latest           
  
